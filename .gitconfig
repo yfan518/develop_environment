@@ -1,0 +1,14 @@
+[alias]
+cm = commit
+st = status
+co = checkout
+df = difftool
+
+[diff]
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+    trustExitCode = true
+[credential]
+    helper = store
