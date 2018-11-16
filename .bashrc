@@ -96,5 +96,6 @@ function change_to_project_root_path()
 }
 export -f change_to_project_root_path
 
+export GREP_OPTTIONS='--color=always' 
 
 
