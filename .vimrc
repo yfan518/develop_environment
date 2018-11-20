@@ -73,10 +73,14 @@ function! CurDir()
          return curdir
 endfunction
 
-set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\
+set statusline=[%n]\%f%m%r%h\ \|\pwd:\ %{CurDir()}\ \|%=\%l,\%c\ %p%%\%{((&fenc==\"\")?\"\":\"\ \|\\".&fenc)}\|\ascii=%b,hex=%b\|
 
 """"""""""""""""""""""""""""""""""make cur file""""""""""""""""""""""""""""""""""""""
-nmap <F7> : wa<CR> call DLVI_mkCurFile()<CR> <CR> cw<CR>
+" nmap <F7> : wa<CR> call DLVI_mkCurFile()<CR> <CR> cw<CR>
+
+noremap <F7> :NERDTreeToggle<CR>
+noremap <silent> <leader>d :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """""""""""""""dlvi""""""""""""""""
 let g:DLVI_Auther = 'DL'
@@ -99,3 +103,4 @@ elseif has('python3')
 	"" vmap = :py3 DLVI_Vertical_Align('<','>',' ', '//', '=')<CR>
 endif
 """""""""""""""""""""""""""""""""""
+
