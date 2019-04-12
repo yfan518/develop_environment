@@ -1,23 +1,39 @@
+" the following line sets tabs to 4 spaces.
 set tabstop=4
 "set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+"set noexpandtab
+set expandtab
+" the following line says to vim to highlight the searched words.
 set hlsearch
-set number
+" make searches case insensitive
 set ignorecase
+" the following line says to vim to execute incremental search.
+set incsearch
+" the following line adds line number to the text.
+set number
+set cindent
 set autoindent
 set smartindent
+" show the editing mode on the last line
+set showmode
+
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set list
 
 set textwidth=0		" no wrap line automatically
 set wrapmargin=0	" no wrap
 "set wrap
 set formatoptions=l
 
-"maxsize and minsize current windows horizontally
+" the following line activates the syntax highlighting.
+syntax on
+
+" maxsize and minsize current windows horizontally
 nmap - <C-W><C-_>
 nmap _ <C-W>=
 
-"change window easily
+" change window easily
 nmap , <C-W><C-W>
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
@@ -39,7 +55,8 @@ nmap L :tabn<CR>
 set scrolloff=3
 
 " ctags | cscope
-set tags=tags;/
+set tags=tags;
+setglobal complete-=i
 nmap <F11> :!update_ctags<CR><CR>
 map <F12> <C-]>
 
@@ -76,7 +93,7 @@ endfunction
 set statusline=[%n]\%f%m%r%h\ \|\pwd:\ %{CurDir()}\ \|%=\%l,\%c\ %p%%\%{((&fenc==\"\")?\"\":\"\ \|\\".&fenc)}\|\ascii=%b,hex=%b\|
 
 """"""""""""""""""""""""""""""""""make cur file""""""""""""""""""""""""""""""""""""""
-" nmap <F7> : wa<CR> call DLVI_mkCurFile()<CR> <CR> cw<CR>
+" nmap <F8> : wa<CR> call DLVI_mkCurFile()<CR> <CR> cw<CR>
 
 noremap <F7> :NERDTreeToggle<CR>
 noremap <silent> <leader>d :NERDTreeToggle<CR>

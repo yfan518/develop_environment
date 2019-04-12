@@ -749,14 +749,31 @@ end
 #
 # C++ related beautifiers (optional)
 #
+set language c++
+set print sym on
+set print vtbl on
 set print array on
+set print union on
 set print pretty on
 set print object on
-set print static-members on
-set print vtbl on
 set print demangle on
-set print union on
+set print static-members on
 set print sevenbit-strings off
-set demangle-style gnu-v3
 
+set verbose on
+set print demangle on
+set complaints 1000
+set demangle-style auto
+# set demangle-style gnu-v3
+
+disp /i $rip
+define pst
+    set $pos=&$arg0
+    set $strlen = {byte}$pos
+    print {char}&$arg0.st@($strlen+1)
+end
+
+document pst
+    Print out a Pascal string
+end
 
