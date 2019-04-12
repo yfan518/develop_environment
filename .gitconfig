@@ -3,12 +3,17 @@ cm = commit
 st = status
 co = checkout
 df = difftool
+pl = pull
+ps = push
 
 [diff]
-    tool = vimdiff
+tool = vimdiff
 
 [difftool]
-    prompt = false
-    trustExitCode = true
+prompt = false
+trustExitCode = true
+[user]
+name = yangfan74
+email = yangfan74@meituan.com
 [credential]
-    helper = store
+helper = store
